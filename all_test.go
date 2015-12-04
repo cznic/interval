@@ -53,7 +53,6 @@ func TestIntersection(t *testing.T) {
 					continue
 				}
 
-				x := &interval{xc, xa, xb}
 				for ya := negInf; ya <= posInf; ya += 10 {
 					for yb := ya + 10; yb <= posInf; yb += 10 {
 						for _, yc := range classes {
@@ -62,6 +61,7 @@ func TestIntersection(t *testing.T) {
 							}
 
 							i++
+							x := &interval{xc, xa, xb}
 							y := &interval{yc, ya, yb}
 							m := map[int]bool{}
 							for n := negInf; n <= posInf; n += 5 {
@@ -79,6 +79,12 @@ func TestIntersection(t *testing.T) {
 									}
 									t.Fatalf("%v, %d: %v %v %v %v", i, n, x, y, g, e)
 								}
+							}
+							x2 := &Int{xc, xa, xb}
+							y2 := &Int{yc, ya, yb}
+							result2 := Intersection(x2, y2).(*Int)
+							if g, e := result.String(), result2.String(); g != e {
+								t.Fatal(x, y, g, e)
 							}
 						}
 					}

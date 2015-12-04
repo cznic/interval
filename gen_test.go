@@ -67,7 +67,7 @@ func (i *interval) SetAB()                        { i.a = i.b }
 func (i *interval) SetB(other Interface)          { i.b = other.(*interval).b }
 func (i *interval) SetBA(other Interface)         { i.b = other.(*interval).a }
 func (i *interval) SetClass(c Class)              { i.cls = c }
-func (i *interval) String() string                { return fmt.Sprintf("{%v %v %v}", i.Class(), i.a, i.b) }
+func (i *interval) String() string { return str(i.Class(), i.a, i.b) }
 
 func (i *interval) hasA() bool {
 	switch i.Class() {
