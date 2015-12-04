@@ -230,11 +230,11 @@ func (i *Float32) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Float32) CompareBB(other Interface) int {
-	if i.A < other.(*Float32).B {
+	if i.B < other.(*Float32).B {
 		return -1
 	}
 
-	if i.A > other.(*Float32).B {
+	if i.B > other.(*Float32).B {
 		return 1
 	}
 
@@ -298,11 +298,11 @@ func (i *Float64) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Float64) CompareBB(other Interface) int {
-	if i.A < other.(*Float64).B {
+	if i.B < other.(*Float64).B {
 		return -1
 	}
 
-	if i.A > other.(*Float64).B {
+	if i.B > other.(*Float64).B {
 		return 1
 	}
 
@@ -364,11 +364,11 @@ func (i *Int8) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Int8) CompareBB(other Interface) int {
-	if i.A < other.(*Int8).B {
+	if i.B < other.(*Int8).B {
 		return -1
 	}
 
-	if i.A > other.(*Int8).B {
+	if i.B > other.(*Int8).B {
 		return 1
 	}
 
@@ -430,11 +430,11 @@ func (i *Int16) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Int16) CompareBB(other Interface) int {
-	if i.A < other.(*Int16).B {
+	if i.B < other.(*Int16).B {
 		return -1
 	}
 
-	if i.A > other.(*Int16).B {
+	if i.B > other.(*Int16).B {
 		return 1
 	}
 
@@ -496,11 +496,11 @@ func (i *Int32) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Int32) CompareBB(other Interface) int {
-	if i.A < other.(*Int32).B {
+	if i.B < other.(*Int32).B {
 		return -1
 	}
 
-	if i.A > other.(*Int32).B {
+	if i.B > other.(*Int32).B {
 		return 1
 	}
 
@@ -562,11 +562,11 @@ func (i *Int64) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Int64) CompareBB(other Interface) int {
-	if i.A < other.(*Int64).B {
+	if i.B < other.(*Int64).B {
 		return -1
 	}
 
-	if i.A > other.(*Int64).B {
+	if i.B > other.(*Int64).B {
 		return 1
 	}
 
@@ -628,11 +628,11 @@ func (i *Int) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Int) CompareBB(other Interface) int {
-	if i.A < other.(*Int).B {
+	if i.B < other.(*Int).B {
 		return -1
 	}
 
-	if i.A > other.(*Int).B {
+	if i.B > other.(*Int).B {
 		return 1
 	}
 
@@ -694,11 +694,11 @@ func (i *Byte) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Byte) CompareBB(other Interface) int {
-	if i.A < other.(*Byte).B {
+	if i.B < other.(*Byte).B {
 		return -1
 	}
 
-	if i.A > other.(*Byte).B {
+	if i.B > other.(*Byte).B {
 		return 1
 	}
 
@@ -760,11 +760,11 @@ func (i *Uint16) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Uint16) CompareBB(other Interface) int {
-	if i.A < other.(*Uint16).B {
+	if i.B < other.(*Uint16).B {
 		return -1
 	}
 
-	if i.A > other.(*Uint16).B {
+	if i.B > other.(*Uint16).B {
 		return 1
 	}
 
@@ -826,11 +826,11 @@ func (i *Uint32) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Uint32) CompareBB(other Interface) int {
-	if i.A < other.(*Uint32).B {
+	if i.B < other.(*Uint32).B {
 		return -1
 	}
 
-	if i.A > other.(*Uint32).B {
+	if i.B > other.(*Uint32).B {
 		return 1
 	}
 
@@ -892,11 +892,11 @@ func (i *Uint64) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Uint64) CompareBB(other Interface) int {
-	if i.A < other.(*Uint64).B {
+	if i.B < other.(*Uint64).B {
 		return -1
 	}
 
-	if i.A > other.(*Uint64).B {
+	if i.B > other.(*Uint64).B {
 		return 1
 	}
 
@@ -958,11 +958,11 @@ func (i *Uint) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Uint) CompareBB(other Interface) int {
-	if i.A < other.(*Uint).B {
+	if i.B < other.(*Uint).B {
 		return -1
 	}
 
-	if i.A > other.(*Uint).B {
+	if i.B > other.(*Uint).B {
 		return 1
 	}
 
@@ -1024,11 +1024,11 @@ func (i *String) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *String) CompareBB(other Interface) int {
-	if i.A < other.(*String).B {
+	if i.B < other.(*String).B {
 		return -1
 	}
 
-	if i.A > other.(*String).B {
+	if i.B > other.(*String).B {
 		return 1
 	}
 
@@ -1090,11 +1090,11 @@ func (i *Time) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Time) CompareBB(other Interface) int {
-	if i.A.Before(other.(*Time).B) {
+	if i.B.Before(other.(*Time).B) {
 		return -1
 	}
 
-	if i.A.After(other.(*Time).B) {
+	if i.B.After(other.(*Time).B) {
 		return 1
 	}
 
@@ -1156,11 +1156,11 @@ func (i *Duration) CompareAB(other Interface) int {
 
 // CompareBB implements Interface.
 func (i *Duration) CompareBB(other Interface) int {
-	if i.A < other.(*Duration).B {
+	if i.B < other.(*Duration).B {
 		return -1
 	}
 
-	if i.A > other.(*Duration).B {
+	if i.B > other.(*Duration).B {
 		return 1
 	}
 
