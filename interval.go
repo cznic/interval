@@ -19,6 +19,8 @@ import (
 	"fmt"
 	"math/big"
 	"time"
+
+	"github.com/cznic/mathutil"
 )
 
 var (
@@ -29,6 +31,7 @@ var (
 	_ Interface = (*Float32)(nil)
 	_ Interface = (*Float64)(nil)
 	_ Interface = (*Int)(nil)
+	_ Interface = (*Int128)(nil)
 	_ Interface = (*Int16)(nil)
 	_ Interface = (*Int32)(nil)
 	_ Interface = (*Int64)(nil)
@@ -581,6 +584,42 @@ func (i *Int64) SetB(other Interface) { i.B = other.(*Int64).B }
 
 // SetBA implements Interface.
 func (i *Int64) SetBA(other Interface) { i.B = other.(*Int64).A }
+
+// Int128 is an interval having Int128 bounds.
+type Int128 struct {
+	Cls  Class
+	A, B mathutil.Int128
+}
+
+// String implements fmt.Stringer.
+func (i *Int128) String() string { return str(i.Cls, i.A, i.B) }
+
+// Class implements Interface.
+func (i *Int128) Class() Class { return i.Cls }
+
+// SetClass implements Interface.
+func (i *Int128) SetClass(c Class) { i.Cls = c }
+
+// Clone implements Interface.
+func (i *Int128) Clone() Interface { j := *i; return &j }
+
+// CompareAA implements Interface.
+func (i *Int128) CompareAA(other Interface) int { return i.A.Cmp(other.(*Int128).A) }
+
+// CompareAB implements Interface.
+func (i *Int128) CompareAB(other Interface) int { return i.A.Cmp(other.(*Int128).B) }
+
+// CompareBB implements Interface.
+func (i *Int128) CompareBB(other Interface) int { return i.B.Cmp(other.(*Int128).B) }
+
+// SetAB implements Interface.
+func (i *Int128) SetAB() { i.A = i.B }
+
+// SetB implements Interface.
+func (i *Int128) SetB(other Interface) { i.B = other.(*Int128).B }
+
+// SetBA implements Interface.
+func (i *Int128) SetBA(other Interface) { i.B = other.(*Int128).A }
 
 // Int is an interval having int bounds.
 type Int struct {

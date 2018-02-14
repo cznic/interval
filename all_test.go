@@ -13,6 +13,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/cznic/mathutil"
 )
 
 func caller(s string, va ...interface{}) {
@@ -43,6 +45,8 @@ func TODO(...interface{}) string {
 func use(...interface{}) {}
 
 // ============================================================================
+
+var int128 mathutil.Int128
 
 func TestIntersection(t *testing.T) {
 	i := 0
@@ -266,6 +270,14 @@ func ExampleInt32() {
 func ExampleInt64() {
 	x := &Int64{LeftOpen, 1, 2}
 	y := &Int64{LeftClosed, 2, 3}
+	fmt.Printf("x %v, y %v: x ∩ y %v, x ∪ y %v", x, y, Intersection(x, y), Union(x, y))
+	// Output:
+	// x (1, 2], y [2, 3): x ∩ y {2}, x ∪ y (1, 3)
+}
+
+func ExampleInt128() {
+	x := &Int128{LeftOpen, int128.SetInt64(1), int128.SetInt64(2)}
+	y := &Int128{LeftClosed, int128.SetInt64(2), int128.SetInt64(3)}
 	fmt.Printf("x %v, y %v: x ∩ y %v, x ∪ y %v", x, y, Intersection(x, y), Union(x, y))
 	// Output:
 	// x (1, 2], y [2, 3): x ∩ y {2}, x ∪ y (1, 3)

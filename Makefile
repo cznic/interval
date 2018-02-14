@@ -26,6 +26,9 @@ cpu:
 	./cpu.test -noerr -test.cpuprofile cpu.out
 	go tool pprof --lines cpu.test cpu.out
 
+edit:
+	@ 1>/dev/null 2>/dev/null gvim -p Makefile *.go
+
 editor: class_string.go gen.go
 	gofmt -l -s -w *.go
 	go test
