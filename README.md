@@ -1,8 +1,5 @@
-# interval
-Package interval handles sets of ordered values laying between two, possibly infinite, bounds.
+`github.com/cznic/interval` has moved to [`modernc.org/interval`](https://godoc.org/modernc.org/interval) ([vcs](https://gitlab.com/cznic/interval)).
 
-Installation
+Please update your import paths to `modernc.org/interval`.
 
-    $ go get github.com/cznic/interval
-
-Documentation: [godoc.org/github.com/cznic/interval](http://godoc.org/github.com/cznic/interval)
+This repo is now archived.
